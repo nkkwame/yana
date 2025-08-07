@@ -1,23 +1,221 @@
-import Image from "next/image";
+import { YANALayout } from "@yana/ui/yana-layout";
 
 export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
+    <YANALayout platform="learn">
+      <div className="px-4 py-8">
+        {/* Hero Section */}
+        <div className="text-center mb-16">
+          <h1 className="text-5xl font-bold text-gray-900 mb-4">
+            YANA Learn - Your Academic Network Assistant
+          </h1>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            Unlock your potential with personalized learning experiences. From professional 
+            development to academic excellence - your learning journey starts here.
+          </p>
+          <div className="mt-8">
+            <button className="bg-orange-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-orange-700 transition-colors mr-4">
+              Start Learning Today
+            </button>
+            <button className="border border-orange-600 text-orange-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-orange-50 transition-colors">
+              Browse Courses
+            </button>
+          </div>
+        </div>
+
+        {/* Course Categories */}
+        <div className="mb-16">
+          <h2 className="text-3xl font-bold text-center mb-8">Popular Learning Paths</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              {
+                title: "Technology & Programming",
+                icon: "💻",
+                courses: "150+ courses",
+                color: "bg-blue-100 border-blue-200",
+                textColor: "text-blue-600"
+              },
+              {
+                title: "Business & Marketing",
+                icon: "📊",
+                courses: "120+ courses",
+                color: "bg-green-100 border-green-200",
+                textColor: "text-green-600"
+              },
+              {
+                title: "Design & Creative Arts",
+                icon: "🎨",
+                courses: "90+ courses",
+                color: "bg-purple-100 border-purple-200",
+                textColor: "text-purple-600"
+              },
+              {
+                title: "Health & Wellness",
+                icon: "🏥",
+                courses: "80+ courses",
+                color: "bg-red-100 border-red-200",
+                textColor: "text-red-600"
+              },
+              {
+                title: "Language Learning",
+                icon: "🌍",
+                courses: "60+ courses",
+                color: "bg-indigo-100 border-indigo-200",
+                textColor: "text-indigo-600"
+              },
+              {
+                title: "Personal Development",
+                icon: "🚀",
+                courses: "70+ courses",
+                color: "bg-pink-100 border-pink-200",
+                textColor: "text-pink-600"
+              }
+            ].map((category) => (
+              <div key={category.title} className={`${category.color} border-2 rounded-lg p-6 hover:shadow-lg transition-shadow cursor-pointer`}>
+                <div className="text-center">
+                  <div className="text-4xl mb-3">{category.icon}</div>
+                  <h3 className="text-xl font-semibold mb-2">{category.title}</h3>
+                  <p className={`${category.textColor} font-medium`}>{category.courses}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Featured Courses */}
+        <div className="mb-16">
+          <h2 className="text-3xl font-bold text-center mb-8">Featured Courses</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              {
+                title: "Complete Web Development Bootcamp",
+                instructor: "Sarah Johnson",
+                duration: "12 weeks",
+                level: "Beginner",
+                rating: "4.9",
+                students: "15,000+",
+                price: "$89.99"
+              },
+              {
+                title: "Digital Marketing Mastery",
+                instructor: "Mike Chen",
+                duration: "8 weeks",
+                level: "Intermediate",
+                rating: "4.8",
+                students: "12,000+",
+                price: "$79.99"
+              },
+              {
+                title: "UI/UX Design Fundamentals",
+                instructor: "Emma Davis",
+                duration: "10 weeks",
+                level: "Beginner",
+                rating: "4.9",
+                students: "8,500+",
+                price: "$69.99"
+              }
+            ].map((course, index) => (
+              <div key={index} className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                <div className="bg-gradient-to-r from-orange-400 to-orange-600 h-48 flex items-center justify-center">
+                  <span className="text-white text-6xl">📚</span>
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-semibold mb-2">{course.title}</h3>
+                  <p className="text-gray-600 mb-2">by {course.instructor}</p>
+                  <div className="flex items-center justify-between text-sm text-gray-500 mb-3">
+                    <span>{course.duration}</span>
+                    <span>{course.level}</span>
+                  </div>
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="flex items-center">
+                      <span className="text-yellow-500">⭐</span>
+                      <span className="text-sm ml-1">{course.rating} ({course.students})</span>
+                    </div>
+                    <span className="text-orange-600 font-bold text-lg">{course.price}</span>
+                  </div>
+                  <button className="w-full bg-orange-600 text-white py-2 rounded hover:bg-orange-700 transition-colors">
+                    Enroll Now
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Learning Features */}
+        <div className="bg-orange-50 rounded-lg p-8 mb-16">
+          <h2 className="text-3xl font-bold text-center mb-8">Why Choose YANA Learn?</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="text-center">
+              <div className="bg-orange-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-orange-600 text-2xl">🎯</span>
+              </div>
+              <h3 className="text-lg font-semibold mb-2">Personalized Learning</h3>
+              <p className="text-gray-600">AI-powered recommendations tailored to your goals</p>
+            </div>
+            <div className="text-center">
+              <div className="bg-orange-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-orange-600 text-2xl">🏆</span>
+              </div>
+              <h3 className="text-lg font-semibold mb-2">Certificates</h3>
+              <p className="text-gray-600">Industry-recognized certificates upon completion</p>
+            </div>
+            <div className="text-center">
+              <div className="bg-orange-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-orange-600 text-2xl">👥</span>
+              </div>
+              <h3 className="text-lg font-semibold mb-2">Community</h3>
+              <p className="text-gray-600">Connect with learners and experts worldwide</p>
+            </div>
+            <div className="text-center">
+              <div className="bg-orange-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-orange-600 text-2xl">📱</span>
+              </div>
+              <h3 className="text-lg font-semibold mb-2">Mobile Learning</h3>
+              <p className="text-gray-600">Learn anywhere, anytime on any device</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Stats Section */}
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-16">
+          <div className="text-center">
+            <div className="text-4xl font-bold text-orange-600 mb-2">500+</div>
+            <p className="text-gray-600">Expert Instructors</p>
+          </div>
+          <div className="text-center">
+            <div className="text-4xl font-bold text-orange-600 mb-2">10K+</div>
+            <p className="text-gray-600">Courses Available</p>
+          </div>
+          <div className="text-center">
+            <div className="text-4xl font-bold text-orange-600 mb-2">1M+</div>
+            <p className="text-gray-600">Students Enrolled</p>
+          </div>
+          <div className="text-center">
+            <div className="text-4xl font-bold text-orange-600 mb-2">95%</div>
+            <p className="text-gray-600">Completion Rate</p>
+          </div>
+        </div>
+
+        {/* CTA Section */}
+        <div className="bg-orange-600 text-white rounded-lg p-12 text-center">
+          <h2 className="text-3xl font-bold mb-4">Ready to Start Your Learning Journey?</h2>
+          <p className="text-xl mb-8 opacity-90">
+            Join millions of learners and unlock your potential with YANA Learn.
+          </p>
+          <div className="flex justify-center space-x-4">
+            <button className="bg-white text-orange-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+              Start Free Trial
+            </button>
+            <button className="border border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-orange-700 transition-colors">
+              View All Courses
+            </button>
+          </div>
+        </div>
+      </div>
+    </YANALayout>
+  );
+}
             .
           </li>
           <li className="tracking-[-.01em]">
