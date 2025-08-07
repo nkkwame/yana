@@ -1,13 +1,127 @@
-# Turborepo starter
+# YANA Enterprises - Digital Ecosystem
 
-This Turborepo starter is maintained by the Turborepo core team.
+A comprehensive multi-platform digital ecosystem inspired by companies like Envato, providing healthcare, e-commerce, education, and creative services all under one unified brand.
 
-## Using this example
+## 🌟 Platforms
 
-Run the following command:
+### 🏢 YANA Enterprises (Port 3000)
+**Main Landing Page & Company Hub**
+- Central navigation to all platforms
+- Company information and services overview
+- Contact and support center
 
-```sh
-npx create-turbo@latest
+### 🏥 YANACare (Port 3001)
+**Hospital Management System**
+- Patient management
+- Appointment scheduling
+- Medical records system
+- Healthcare provider tools
+
+### 🛒 YANA Mart (Port 3002)
+**E-commerce Marketplace**
+- Product catalog and shopping
+- Seller marketplace
+- Payment processing
+- Order management
+
+### 📚 YANA Learn (Port 3003)
+**E-learning Platform (Your Academic Network Assistant)**
+- Online courses and tutorials
+- Interactive learning modules
+- Progress tracking
+- Certification system
+
+### 🎨 YANA Studios (Port 3004)
+**Creative Services Platform**
+- Digital asset marketplace
+- Design templates and resources
+- Creative services booking
+- Portfolio showcase
+
+### 🔧 API Gateway (Port 8000)
+**Backend Services**
+- Unified authentication
+- Service routing
+- Data management
+- Microservices coordination
+
+## 🚀 Tech Stack
+
+- **Frontend**: Next.js 15 with TypeScript and Tailwind CSS
+- **Backend**: Node.js with Express and TypeScript
+- **Architecture**: Microservices with Turborepo monorepo
+- **UI Library**: Shared React components
+- **Database**: PostgreSQL with Prisma ORM (planned)
+- **Caching**: Redis (planned)
+- **Package Manager**: npm with workspaces
+
+## 🛠 Getting Started
+
+### Prerequisites
+- Node.js 18+ 
+- npm
+
+### Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
+   cd yana
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Start all platforms in development**
+   ```bash
+   npm run dev
+   ```
+
+4. **Access the platforms**
+   - YANA Enterprises: http://localhost:3000
+   - YANACare: http://localhost:3001
+   - YANA Mart: http://localhost:3002
+   - YANA Learn: http://localhost:3003
+   - YANA Studios: http://localhost:3004
+   - API Gateway: http://localhost:8000
+
+### Individual Platform Development
+
+Run specific platforms:
+```bash
+# Start only the main enterprises site
+turbo run dev --filter=yana-enterprises
+
+# Start only YANACare
+turbo run dev --filter=yana-care
+
+# Start only the API
+turbo run dev --filter=api
+```
+
+## 📁 Project Structure
+
+```
+yana/
+├── apps/
+│   ├── yana-enterprises/    # Main landing page (Port 3000)
+│   ├── yana-care/          # Hospital management (Port 3001)
+│   ├── yana-mart/          # E-commerce (Port 3002)
+│   ├── yana-learn/         # E-learning (Port 3003)
+│   ├── yana-studios/       # Creative services (Port 3004)
+│   └── api/                # Backend API gateway (Port 8000)
+├── packages/
+│   ├── ui/                 # Shared React components
+│   ├── typescript-config/  # Shared TypeScript configuration
+│   └── eslint-config/      # Shared ESLint configuration
+├── .github/
+│   └── copilot-instructions.md
+├── package.json
+├── turbo.json
+└── README.md
+```
 ```
 
 ## What's inside?
